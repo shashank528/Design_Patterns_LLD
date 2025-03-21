@@ -15,6 +15,7 @@ class Singelton
         if(instance==null)
         {
            Lock lock=new ReentrantLock();
+           //why double checking after creating lock object we need to see if instance is still null then only we should aquire lock
            if(instance==null)
            {
                lock.lock();
