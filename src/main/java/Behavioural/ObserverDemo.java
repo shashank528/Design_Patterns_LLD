@@ -84,16 +84,13 @@ class Subject
     public void setState(String state)
     {
         this.state=state;
-        for(Observer obs:observers)
-        {
-            obs.update(state);
-        }
+        notifyObserver( state);
     }
-    public void notifyObserver()
+    public void notifyObserver(String state)
     {
         for(Observer obs:observers)
         {
-            obs.notify();
+            obs.update(state);
         }
     }
 }

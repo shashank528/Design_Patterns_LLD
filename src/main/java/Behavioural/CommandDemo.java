@@ -7,6 +7,7 @@ class RequestRideCommand implements  Icommmand{
     private String passenger;
     private String src;
     private String dest;
+    //receiver
     private RideService rideService;
     public RequestRideCommand(String passenger,String src,String dest,RideService rideService)
     {
@@ -59,11 +60,13 @@ class Invoker
 public class CommandDemo {
     public static void main(String[] args) {
         RideService rideService = new RideService();
-        Icommmand icommmand1 = new RequestRideCommand("shashank","bon vivant","khardi",rideService);
-        Icommmand icommmand2 = new CancelRideCommand("ragini ",rideService);
+        //create command request
+        Icommmand icommand1 = new RequestRideCommand("shashank","bon vivant","kharadi",rideService);
+        Icommmand icommand2 = new CancelRideCommand("ragini ",rideService);
+        //create invoker
         Invoker  invoker = new Invoker();
-        invoker.processRequest(icommmand1);
-        invoker.processRequest(icommmand2);
+        invoker.processRequest(icommand1);
+        invoker.processRequest(icommand2);
     }
 
 }
