@@ -1,4 +1,4 @@
-package Behavioural;
+package Behavioural.command;
 interface Icommmand
 {
     void execute();

@@ -27,7 +27,6 @@ abstract class AtmHandler
 }
 class ThousandHanlder extends AtmHandler
 {
-
     public ThousandHanlder(int denomination) {
         super(denomination);
     }
