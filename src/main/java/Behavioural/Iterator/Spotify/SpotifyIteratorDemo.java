@@ -64,7 +64,18 @@ class PlayList<T> implements Aggregator<T>
 
     @Override
     public Iterator<T> createIterator(String str) {
-       return null;
+        Iterator<T> itr;
+        switch (str){
+            case "fav":
+                itr = new FavoriteIterator();
+                break;
+            case "shuff":
+                itr= new ShuffleIterator();
+                break;
+            default:itr= new ListIterator();
+        }
+        return itr;
+
     }
     private class ListIterator implements Iterator<T>
     {
@@ -146,12 +157,17 @@ class PlayList<T> implements Aggregator<T>
 public class SpotifyIteratorDemo {
     public static void main(String[] args) {
         Song song1 = new Song("a","b","c");
-        Song song2 = new Song("a","b","c");
-        Song song3 = new Song("a","b","c");
+        Song song2 = new Song("a","d","e");
+        Song song3 = new Song("a","f","g");
         PlayList<Song> spotifyPlaylist = new PlayList<>();
         spotifyPlaylist.add(song1,true);
         spotifyPlaylist.add(song2,true);
         spotifyPlaylist.add(song3,false);
+        Iterator<Song> itr = spotifyPlaylist.createIterator("fav");
+        while(itr.hasNext())
+        {
+            System.out.println(itr.next());
+        }
 
 
     }
