@@ -168,7 +168,5 @@ public class SpotifyIteratorDemo {
         {
             System.out.println(itr.next());
         }
-
-
     }
 }
