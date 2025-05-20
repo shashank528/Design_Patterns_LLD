@@ -1,6 +1,4 @@
-package Behavioural.Decorator;
-
-import java.sql.SQLOutput;
+package Structural.Decorator;
 
 interface FoodItem
 {
